@@ -26,18 +26,24 @@
 //   })
 //   .catch(error => console.log(error));
 
-// https://medium.com/javascript-in-plain-english/creating-a-rest-api-with-jwt-authentication-and-role-based-authorization-using-typescript-fbfa3cab22a4
-
-import express = require('express');
-import * as cors from "cors";
-import routes from "./routes";
+import express from 'express';
+import cors from 'cors';
+import routes from './routes';
 
 // Create a new express application instance
 const app: express.Application = express();
 
-app.use(cors());
+const options: cors.CorsOptions = {
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token'],
+    credentials: true,
+    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+    origin: '*',
+    preflightContinue: false,
+};
 
-app.use("/", routes);
+app.use(cors(options));
+
+app.use('/', routes);
 
 // app.get('/', function (req, res) {
 //     res.send(messages.hello);

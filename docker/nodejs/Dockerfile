@@ -1,7 +1,5 @@
 FROM node:12
 
-RUN npm install nodemon typescript ts-node -g
-
 # Create and define the node_modules's cache directory.
 # RUN mkdir /usr/src/cache
 # WORKDIR /usr/src/cache
