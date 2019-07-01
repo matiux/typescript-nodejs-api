@@ -9,6 +9,6 @@ app.get('/', function (req, res) {
     res.send(messages.hello);
 });
 
-app.listen(8089, function () {
-    console.log('Example app listening on port 8089!');
+app.listen(process.env.PORT, function () {
+    console.log('Example app listening on port ' + process.env.PORT);
 });

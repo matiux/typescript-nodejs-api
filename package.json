@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node server.ts",
+    "start": "ts-node src/index.ts",
     "dev": "nodemon -L",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json -c tslint.json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^12.0.10",
+    "cors": "^2.8.5",
     "express": "4.17.1"
+  },
+  "devDependencies": {
+    "tslint": "^5.18.0"
   }
 }
